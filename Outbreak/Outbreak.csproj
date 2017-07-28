@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
@@ -11,6 +11,158 @@
   <PropertyGroup>
     <UserSecretsId>aspnet-Outbreak-312e2350-0a84-449b-ab27-211c0a3f02e8</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\assets\plugins\bootstrap-3.3.1\css\bootstrap-theme.css" />
+    <Content Include="wwwroot\assets\plugins\bootstrap-3.3.1\css\bootstrap-theme.css.map" />
+    <Content Include="wwwroot\assets\plugins\bootstrap-3.3.1\css\bootstrap-theme.min.css" />
+    <Content Include="wwwroot\assets\plugins\bootstrap-3.3.1\css\bootstrap.css" />
+    <Content Include="wwwroot\assets\plugins\bootstrap-3.3.1\css\bootstrap.css.map" />
+    <Content Include="wwwroot\assets\plugins\bootstrap-3.3.1\css\bootstrap.min.css" />
+    <Content Include="wwwroot\assets\plugins\bootstrap-3.3.1\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="wwwroot\assets\plugins\bootstrap-3.3.1\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="wwwroot\assets\plugins\bootstrap-3.3.1\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="wwwroot\assets\plugins\bootstrap-3.3.1\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="wwwroot\assets\plugins\bootstrap-3.3.1\js\bootstrap.js" />
+    <Content Include="wwwroot\assets\plugins\bootstrap-3.3.1\js\bootstrap.min.js" />
+    <Content Include="wwwroot\assets\plugins\bootstrap-3.3.1\js\npm.js" />
+    <Content Include="wwwroot\assets\plugins\easypiechart\jquery.easypiechart.js" />
+    <Content Include="wwwroot\assets\plugins\easypiechart\jquery.easypiechart.min.js" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\css\font-awesome.css" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\css\font-awesome.min.css" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\fonts\FontAwesome.otf" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\less\bordered-pulled.less" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\less\core.less" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\less\fixed-width.less" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\less\font-awesome.less" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\less\icons.less" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\less\larger.less" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\less\list.less" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\less\mixins.less" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\less\path.less" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\less\rotated-flipped.less" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\less\spinning.less" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\less\stacked.less" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\less\variables.less" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\scss\font-awesome.scss" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\scss\_bordered-pulled.scss" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\scss\_core.scss" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\scss\_fixed-width.scss" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\scss\_icons.scss" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\scss\_larger.scss" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\scss\_list.scss" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\scss\_mixins.scss" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\scss\_path.scss" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\scss\_rotated-flipped.scss" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\scss\_spinning.scss" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\scss\_stacked.scss" />
+    <Content Include="wwwroot\assets\plugins\font-awesome-4.2.0\scss\_variables.scss" />
+    <Content Include="wwwroot\assets\plugins\jquery.easing-1.3.pack.js" />
+    <Content Include="wwwroot\assets\plugins\jquery.js" />
+    <Content Include="wwwroot\assets\plugins\jquery.parallax-1.1.3.js" />
+    <Content Include="wwwroot\assets\plugins\jquery.ui.map.js" />
+    <Content Include="wwwroot\assets\plugins\less-1.7.0.min.js" />
+    <Content Include="wwwroot\assets\plugins\magnific-popup\jquery.magnific-popup.js" />
+    <Content Include="wwwroot\assets\plugins\magnific-popup\jquery.magnific-popup.min.js" />
+    <Content Include="wwwroot\assets\plugins\magnific-popup\magnific-popup.css" />
+    <Content Include="wwwroot\assets\plugins\pace\pace.css" />
+    <Content Include="wwwroot\assets\plugins\pace\pace.min.js" />
+    <Content Include="wwwroot\assets\plugins\Simple-Ajax-Uploader\Changelog.md" />
+    <Content Include="wwwroot\assets\plugins\Simple-Ajax-Uploader\extras\cors.php" />
+    <Content Include="wwwroot\assets\plugins\Simple-Ajax-Uploader\extras\sessionProgress.php" />
+    <Content Include="wwwroot\assets\plugins\Simple-Ajax-Uploader\extras\Uploader.php" />
+    <Content Include="wwwroot\assets\plugins\Simple-Ajax-Uploader\extras\uploadProgress.php" />
+    <Content Include="wwwroot\assets\plugins\Simple-Ajax-Uploader\README.md" />
+    <Content Include="wwwroot\assets\plugins\Simple-Ajax-Uploader\SimpleAjaxUploader.js" />
+    <Content Include="wwwroot\assets\plugins\Simple-Ajax-Uploader\SimpleAjaxUploader.min.js" />
+    <Content Include="wwwroot\assets\plugins\simpleCaptcha\captchaImages\01.png" />
+    <Content Include="wwwroot\assets\plugins\simpleCaptcha\captchaImages\02.png" />
+    <Content Include="wwwroot\assets\plugins\simpleCaptcha\captchaImages\03.png" />
+    <Content Include="wwwroot\assets\plugins\simpleCaptcha\captchaImages\04.png" />
+    <Content Include="wwwroot\assets\plugins\simpleCaptcha\captchaImages\05.png" />
+    <Content Include="wwwroot\assets\plugins\simpleCaptcha\captchaImages\06.png" />
+    <Content Include="wwwroot\assets\plugins\simpleCaptcha\captchaImages\07.png" />
+    <Content Include="wwwroot\assets\plugins\simpleCaptcha\captchaImages\08.png" />
+    <Content Include="wwwroot\assets\plugins\simpleCaptcha\captchaImages\09.png" />
+    <Content Include="wwwroot\assets\plugins\simpleCaptcha\captchaImages\10.png" />
+    <Content Include="wwwroot\assets\plugins\simpleCaptcha\jquery.simpleCaptcha.css" />
+    <Content Include="wwwroot\assets\plugins\simpleCaptcha\jquery.simpleCaptcha.js" />
+    <Content Include="wwwroot\assets\plugins\simpleCaptcha\refresh.png" />
+    <Content Include="wwwroot\assets\plugins\simpleCaptcha\simpleCaptcha.php" />
+    <Content Include="wwwroot\assets\plugins\typed\typed.css" />
+    <Content Include="wwwroot\assets\plugins\typed\typed.js" />
+    <Content Include="wwwroot\assets\plugins\validator\additional-methods.js" />
+    <Content Include="wwwroot\assets\plugins\validator\additional-methods.min.js" />
+    <Content Include="wwwroot\assets\plugins\validator\jquery.validate.js" />
+    <Content Include="wwwroot\assets\plugins\validator\jquery.validate.min.js" />
+    <Content Include="wwwroot\assets\theme\css\blocks\about.less" />
+    <Content Include="wwwroot\assets\theme\css\blocks\blog.less" />
+    <Content Include="wwwroot\assets\theme\css\blocks\body.less" />
+    <Content Include="wwwroot\assets\theme\css\blocks\captcha.less" />
+    <Content Include="wwwroot\assets\theme\css\blocks\contact.less" />
+    <Content Include="wwwroot\assets\theme\css\blocks\helper.less" />
+    <Content Include="wwwroot\assets\theme\css\blocks\main-footer.less" />
+    <Content Include="wwwroot\assets\theme\css\blocks\main-header.less" />
+    <Content Include="wwwroot\assets\theme\css\blocks\parallax.less" />
+    <Content Include="wwwroot\assets\theme\css\blocks\portfolio.less" />
+    <Content Include="wwwroot\assets\theme\css\blocks\resume.less" />
+    <Content Include="wwwroot\assets\theme\css\blocks\service.less" />
+    <Content Include="wwwroot\assets\theme\css\blocks\skill.less" />
+    <Content Include="wwwroot\assets\theme\css\blocks\testimonial.less" />
+    <Content Include="wwwroot\assets\theme\css\blocks\typography.less" />
+    <Content Include="wwwroot\assets\theme\css\components\buttons.less" />
+    <Content Include="wwwroot\assets\theme\css\components\carousel.less" />
+    <Content Include="wwwroot\assets\theme\css\components\form.less" />
+    <Content Include="wwwroot\assets\theme\css\components\navbar.less" />
+    <Content Include="wwwroot\assets\theme\css\components\pagination.less" />
+    <Content Include="wwwroot\assets\theme\css\components\tabs.less" />
+    <Content Include="wwwroot\assets\theme\css\includes\css3.less" />
+    <Content Include="wwwroot\assets\theme\css\includes\variable.less" />
+    <Content Include="wwwroot\assets\theme\css\skin-black.css" />
+    <Content Include="wwwroot\assets\theme\css\skin-black.less" />
+    <Content Include="wwwroot\assets\theme\css\style.css" />
+    <Content Include="wwwroot\assets\theme\css\style.less" />
+    <Content Include="wwwroot\assets\theme\images\apple-touch-icon.png" />
+    <Content Include="wwwroot\assets\theme\images\bg1.jpg" />
+    <Content Include="wwwroot\assets\theme\images\bg2.jpg" />
+    <Content Include="wwwroot\assets\theme\images\blog\1.jpg" />
+    <Content Include="wwwroot\assets\theme\images\blog\2.jpg" />
+    <Content Include="wwwroot\assets\theme\images\blog\3.jpg" />
+    <Content Include="wwwroot\assets\theme\images\blog\4.jpg" />
+    <Content Include="wwwroot\assets\theme\images\blog\5.jpg" />
+    <Content Include="wwwroot\assets\theme\images\favicon.ico" />
+    <Content Include="wwwroot\assets\theme\images\main-header.jpg" />
+    <Content Include="wwwroot\assets\theme\images\marker.png" />
+    <Content Include="wwwroot\assets\theme\images\my-pict.jpg" />
+    <Content Include="wwwroot\assets\theme\images\patner\1.png" />
+    <Content Include="wwwroot\assets\theme\images\patner\2.png" />
+    <Content Include="wwwroot\assets\theme\images\patner\3.png" />
+    <Content Include="wwwroot\assets\theme\images\patner\4.png" />
+    <Content Include="wwwroot\assets\theme\images\patner\5.png" />
+    <Content Include="wwwroot\assets\theme\images\patner\6.png" />
+    <Content Include="wwwroot\assets\theme\images\people\1.jpg" />
+    <Content Include="wwwroot\assets\theme\images\people\2.jpg" />
+    <Content Include="wwwroot\assets\theme\images\people\3.jpg" />
+    <Content Include="wwwroot\assets\theme\images\people\4.jpg" />
+    <Content Include="wwwroot\assets\theme\images\people\5.jpg" />
+    <Content Include="wwwroot\assets\theme\images\people\6.jpg" />
+    <Content Include="wwwroot\assets\theme\images\people\7.jpg" />
+    <Content Include="wwwroot\assets\theme\images\people\8.jpg" />
+    <Content Include="wwwroot\assets\theme\images\portfolio\p1.png" />
+    <Content Include="wwwroot\assets\theme\images\portfolio\p2.jpg" />
+    <Content Include="wwwroot\assets\theme\images\portfolio\p3.png" />
+    <Content Include="wwwroot\assets\theme\images\portfolio\p4.jpg" />
+    <Content Include="wwwroot\assets\theme\images\portfolio\p5.jpg" />
+    <Content Include="wwwroot\assets\theme\images\portfolio\p6.png" />
+    <Content Include="wwwroot\assets\theme\images\slider\1.jpg" />
+    <Content Include="wwwroot\assets\theme\js\theme.js" />
+    <Content Include="wwwroot\php\sending_mail.php" />
+    <Content Include="wwwroot\php\upload.php" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
@@ -32,6 +184,9 @@
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.1" />
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="1.0.1" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\php\uploads\" />
   </ItemGroup>
 
 </Project>
