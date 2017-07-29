@@ -1,4 +1,4 @@
-(function($) {
+﻿(function($) {
   "use strict";
 
   //Run function When Document Ready
@@ -166,7 +166,7 @@
   //Typed Animation
   function initTyped() {
     $("#typed").typed({
-      strings: ["A Designer", "A Freelancer", "A Marketer", "A Developer"],
+      strings: ["Гражданский", "Солдат", "Бандит", "Маньяк","Дикарь"],
       // typing speed
       typeSpeed: 300,
       // time before typing starts
