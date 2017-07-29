@@ -37,9 +37,9 @@
                                 <ul class="breadcrumb main-nav nav">
                                     <li class="active"><a href="#home" class="link-inpage">Домой</a></li>
                                     <li><a href="#about" class="link-inpage">О проекте</a></li>
-                                    <li><a href="#resume" class="link-inpage">История</a></li>
-                                    <li><a href="#portfolio" class="link-inpage">Portfolio</a></li>
                                     <li><a href="#blog" class="link-inpage">Новости</a></li>
+                                    <li><a href="#portfolio" class="link-inpage">Portfolio</a></li>
+                                    <li><a href="#resume" class="link-inpage">История</a></li>
                                     <li><a href="#contact" id="contact-tab" class="link-inpage">Контакты</a></li>
                                 </ul>
                             </div>
@@ -117,76 +117,91 @@
             </div><!-- END SERVICES-->
         </section><!-- END ABOUT ME -->
         <!-- RESUME -->
-        <section id="resume" class="block-section">
-            <!--EMPLOYEMNT-->
+        <section id="blog" class="block-section">
+            <!--BLOG TITLE-->
             <div class=" shape-bottom">
                 <div class="bg-secondary block-title">
                     <div class="container">
-                        <h2 class="text-uppercase color-dark text-bold no-margin">История проекта</h2>
-                        <div class="title-icon"> <i class="fa fa-briefcase"></i> </div>
+                        <h2 class="text-uppercase color-dark text-bold no-margin">Новости</h2>
+                        <div class="title-icon"> <i class="fa fa-comments-o"></i> </div>
                     </div>
                 </div>
-            </div>
+            </div><!--END BLOG TITLE-->
 
-            <div class="container-medium ">
-                <div class="list-employment">
-                    <ul class="list-unstyled  clearfix">
+            <div class="block-page">
+                <div class="container-medium">
+                    <!--LIST BLOG-->
+                    <ul class="list-unstyled list-blog">
                         <li>
-                            <div class="ic"><i class="fa fa-briefcase"></i></div>
-                            <div class="number font-alt">01</div>
-                            <div class="desc">
-                                <h5 class="text-uppercase color-dark text-bold">Развертывание проекта</h5>
-                                <p class="font-alt color-primary">Closed Alpha</p>
-                                <p>Создание сайта проекта, обсуждение концепции геймплея, подготовка лора</p>
-                                <p class="font-alt color-dark">  07.2017 - по н.в.</p>
+                            <div class="clearfix box-blog">
+                                <div class="blog-bg" data-holdbg="assets/theme/images/blog/1.jpg">
+                                    &nbsp;
+                                    <div class="blog-ic"><i class="fa fa-pencil"></i></div>
+                                </div>
+                                <div class="blog-content">
+                                    <h5 class="text-uppercase color-dark text-bold">Title BLog Goes Here.</h5>
+                                    <div class="post-meta font-alt">
+                                        <span><i class="fa fa-calendar"></i> 19th May 2014</span>
+                                        <span><i class="fa fa-user"></i> Jack</span>
+                                        <span><i class="fa fa-folder-o"></i> News</span>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <a href="blog-detail.html" class="btn btn-xs btn-flat-solid primary-btn">Read More</a>
+                                </div>
                             </div>
                         </li>
-                    </ul>
+                        <li>
+                            <div class="clearfix box-blog">
+                                <div class="blog-bg" data-holdbg="assets/theme/images/blog/2.jpg">
+                                    &nbsp;
+                                    <div class="blog-ic"><i class="fa fa-picture-o"></i></div>
+                                </div>
+                                <div class="blog-content">
+                                    <h5 class="text-uppercase color-dark text-bold">Title BLog Goes Here.</h5>
+                                    <div class="post-meta font-alt">
+                                        <span><i class="fa fa-calendar"></i> 19th May 2014</span>
+                                        <span><i class="fa fa-user"></i> Jack</span>
+                                        <span><i class="fa fa-folder-o"></i> News</span>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <a href="blog-detail.html" class="btn btn-xs btn-flat-solid primary-btn">Read More</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul> <!--END LIST BLOG-->
+                    <!--BTN SHOW MORE-->
+                    <div class="box-btn-more"><a href="blog-list.html" class="btn btn-flat-line btn-link" id="more-blog"> Show More</a></div>
                 </div>
-            </div><!--END EMPLOYEMNT-->
+            </div>
             <!--SKILLS-->
             <div class=" shape-bottom">
                 <div class="bg-secondary block-title">
                     <div class="container">
-                        <h2 class="text-uppercase color-dark text-bold no-margin">Skills</h2>
+                        <h2 class="text-uppercase color-dark text-bold no-margin">Статистика</h2>
                         <div class="title-icon"> <i class="fa fa-magic"></i> </div>
                     </div>
                 </div>
             </div>
-
+            <div class="title-border">
+                <h5 class="text-uppercase color-dark no-margin text-bold ">Количество игроков</h5>
+            </div>
             <div class="container-medium">
                 <!--SKIL CHART TOP-->
                 <ul class="skill top list-unstyled clearfix">
-                    <li class="col-sm-3 col-xs-6 no-padding">
-                        <div class="box br-right br-bottom">
-                            <span class="chart" data-percent="96">
-                                <span class="percent"></span>
+                    <li class="col-sm-6 col-xs-12 no-padding">
+                        <div class="box">
+                            <span class="chart" data-percent="67">
+                                <span class="percent color-dark"></span>
                             </span>
-                            <div class="text-uppercase  color-dark">Php</div>
+                            <div class="text-uppercase  color-dark">Сервер #1</div>
                         </div>
                     </li>
-                    <li class="col-sm-3 col-xs-6 no-padding">
-                        <div class="box br-right br-bottom">
+                    <li class="col-sm-6 col-xs-12 no-padding">
+                        <div class="box">
                             <span class="chart" data-percent="87">
-                                <span class="percent"></span>
+                                <span class="percent color-dark"></span>
                             </span>
-                            <div class="text-uppercase  color-dark">.NET</div>
-                        </div>
-                    </li>
-                    <li class="col-sm-3 col-xs-6 no-padding">
-                        <div class="box br-right br-bottom">
-                            <span class="chart" data-percent="89">
-                                <span class="percent"></span>
-                            </span>
-                            <div class="text-uppercase  color-dark">MYSQL</div>
-                        </div>
-                    </li>
-                    <li class="col-sm-3 col-xs-6 no-padding">
-                        <div class="box br-bottom">
-                            <span class="chart" data-percent="70">
-                                <span class="percent"></span>
-                            </span>
-                            <div class="text-uppercase color-dark">ROR</div>
+                            <div class="text-uppercase  color-dark">TeamSpeak</div>
                         </div>
                     </li>
                 </ul><!--END SKIL CHART TOP-->
@@ -194,12 +209,11 @@
                 <div class="title-border">
                     <h5 class="text-uppercase color-dark no-margin text-bold ">Прогресс пожертвований</h5>
                 </div>
-
                 <div class="row">
                     <div class="col-sm-6">
                         <ul class="list-unstyled list-progress">
                             <li>
-                                <div class="text-uppercase color-dark title "><span>За этот месяц</span>  <small>45%</small></div>
+                                <div class="text-uppercase color-dark title ">На этот месяц:  <small>45% (4500 Руб.)</small></div>
                                 <div class="progress-line">
                                     <div class="line" data-holdwidth="45%"></div>
                                 </div>
@@ -209,7 +223,7 @@
                     <div class="col-sm-6">
                         <ul class="list-unstyled list-progress">
                             <li>
-                                <div class="text-uppercase color-dark title">За следующий месяц <small>80%</small></div>
+                                <div class="text-uppercase color-dark title">На следующий месяц:  <small>80% (8000 Руб.)</small></div>
                                 <div class="progress-line">
                                     <div class="line" data-holdwidth="80%"></div>
                                 </div>
@@ -341,62 +355,34 @@
             </div><!--END TESTIMONIAL-->
         </section><!--END PORTFOLIO-->
         <!--BLOG-->
-        <section id="blog" class="block-section">
-            <!--BLOG TITLE-->
+        <section id="resume" class="block-section">
+            <!--EMPLOYEMNT-->
             <div class=" shape-bottom">
                 <div class="bg-secondary block-title">
                     <div class="container">
-                        <h2 class="text-uppercase color-dark text-bold no-margin">Новости</h2>
-                        <div class="title-icon"> <i class="fa fa-comments-o"></i> </div>
+                        <h2 class="text-uppercase color-dark text-bold no-margin">История проекта</h2>
+                        <div class="title-icon"> <i class="fa fa-briefcase"></i> </div>
                     </div>
                 </div>
-            </div><!--END BLOG TITLE-->
-
-            <div class="block-page">
-                <div class="container-medium">
-                    <!--LIST BLOG-->
-                    <ul class="list-unstyled list-blog">
-                        <li>
-                            <div class="clearfix box-blog">
-                                <div class="blog-bg" data-holdbg="assets/theme/images/blog/1.jpg">
-                                    &nbsp;
-                                    <div class="blog-ic"><i class="fa fa-pencil"></i></div>
-                                </div>
-                                <div class="blog-content">
-                                    <h5 class="text-uppercase color-dark text-bold">Title BLog Goes Here.</h5>
-                                    <div class="post-meta font-alt">
-                                        <span><i class="fa fa-calendar"></i> 19th May 2014</span>
-                                        <span><i class="fa fa-user"></i> Jack</span>
-                                        <span><i class="fa fa-folder-o"></i> News</span>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <a href="blog-detail.html" class="btn btn-xs btn-flat-solid primary-btn">Read More</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="clearfix box-blog">
-                                <div class="blog-bg" data-holdbg="assets/theme/images/blog/2.jpg">
-                                    &nbsp;
-                                    <div class="blog-ic"><i class="fa fa-picture-o"></i></div>
-                                </div>
-                                <div class="blog-content">
-                                    <h5 class="text-uppercase color-dark text-bold">Title BLog Goes Here.</h5>
-                                    <div class="post-meta font-alt">
-                                        <span><i class="fa fa-calendar"></i> 19th May 2014</span>
-                                        <span><i class="fa fa-user"></i> Jack</span>
-                                        <span><i class="fa fa-folder-o"></i> News</span>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <a href="blog-detail.html" class="btn btn-xs btn-flat-solid primary-btn">Read More</a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul> <!--END LIST BLOG-->
-                    <!--BTN SHOW MORE-->
-                    <div class="box-btn-more"><a href="blog-list.html" class="btn btn-flat-line btn-link" id="more-blog"> Show More</a></div>
-                </div>
             </div>
+
+            <div class="container-medium ">
+                <div class="list-employment">
+                    <ul class="list-unstyled  clearfix">
+                        <li>
+                            <div class="ic"><i class="fa fa-briefcase"></i></div>
+                            <div class="number font-alt">01</div>
+                            <div class="desc">
+                                <h5 class="text-uppercase color-dark text-bold">Развертывание проекта</h5>
+                                <p class="font-alt color-primary">Closed Alpha</p>
+                                <p>Создание сайта проекта, обсуждение концепции геймплея, подготовка лора</p>
+                                <p class="font-alt color-dark">  07.2017 - по н.в.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div><!--END EMPLOYEMNT-->
+            
         </section> <!--END BLOG-->
         <!--CONTACT-->
         <section id="contact" class="block-section">
