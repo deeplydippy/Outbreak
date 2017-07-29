@@ -166,7 +166,7 @@
   //Typed Animation
   function initTyped() {
     $("#typed").typed({
-      strings: ["Гражданский", "Солдат", "Бандит", "Маньяк","Дикарь"],
+      strings: ["Гражданский", "Солдат", "Бандит"],
       // typing speed
       typeSpeed: 300,
       // time before typing starts
@@ -236,8 +236,8 @@
   function initEasyChart() {
     $('.chart').easyPieChart({
       easing: 'easeOutBounce',
-      barColor: '#1e1e1e',
-      trackColor: '#323232',
+      barColor: '#fff',
+      trackColor: '#fff',
       scaleColor: '#fff',
       onStep: function(from, to, percent) {
         $(this.el).find('.percent').text(Math.round(percent));
