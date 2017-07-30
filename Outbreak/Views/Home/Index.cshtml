@@ -23,7 +23,7 @@
             <!-- Main navbar -->
             <div class="menu-area">
                 <div class="toogle-bars">
-                    <a href="#menu-collapse" data-toggle="collapse" class="collapsed"><i class="fa fa-bars ic-open"></i> <i class="fa fa-remove ic-close"></i> MENU</a>
+                    <a href="#menu-collapse" data-toggle="collapse" class="collapsed"><i class="fa fa-bars ic-open"></i> <i class="fa fa-remove ic-close"></i>Меню</a>
                 </div>
                 <div class="menu-collapse collapse" id="menu-collapse">
                     <div class="container">
@@ -38,7 +38,7 @@
                                     <li class="active"><a href="#home" class="link-inpage">Домой</a></li>
                                     <li><a href="#about" class="link-inpage">О проекте</a></li>
                                     <li><a href="#blog" class="link-inpage">Новости</a></li>
-                                    <li><a href="#portfolio" class="link-inpage">Portfolio</a></li>
+                                    <li><a href="#portfolio" class="link-inpage">Байки</a></li>
                                     <li><a href="#resume" class="link-inpage">История</a></li>
                                     <li><a href="#contact" id="contact-tab" class="link-inpage">Контакты</a></li>
                                 </ul>
@@ -143,10 +143,10 @@
                                     <div class="post-meta font-alt">
                                         <span><i class="fa fa-calendar"></i> 19th May 2014</span>
                                         <span><i class="fa fa-user"></i> Jack</span>
-                                        <span><i class="fa fa-folder-o"></i> News</span>
+                                        <span><i class="fa fa-folder-o"></i> Новости</span>
                                     </div>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <a href="blog-detail.html" class="btn btn-xs btn-flat-solid primary-btn">Read More</a>
+                                    <a href="blog-detail.html" class="btn btn-xs btn-flat-solid primary-btn">Читать дальше</a>
                                 </div>
                             </div>
                         </li>
@@ -161,16 +161,16 @@
                                     <div class="post-meta font-alt">
                                         <span><i class="fa fa-calendar"></i> 19th May 2014</span>
                                         <span><i class="fa fa-user"></i> Jack</span>
-                                        <span><i class="fa fa-folder-o"></i> News</span>
+                                        <span><i class="fa fa-folder-o"></i> Новости</span>
                                     </div>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <a href="blog-detail.html" class="btn btn-xs btn-flat-solid primary-btn">Read More</a>
+                                    <a href="blog-detail.html" class="btn btn-xs btn-flat-solid primary-btn">Читать дальше</a>
                                 </div>
                             </div>
                         </li>
                     </ul> <!--END LIST BLOG-->
                     <!--BTN SHOW MORE-->
-                    <div class="box-btn-more"><a href="blog-list.html" class="btn btn-flat-line btn-link" id="more-blog"> Show More</a></div>
+                    <div class="box-btn-more"><a href="blog-list.html" class="btn btn-flat-line btn-link" id="more-blog">Показать все</a></div>
                 </div>
             </div>
             <!--SKILLS-->
@@ -251,7 +251,7 @@
             <div class=" shape-bottom">
                 <div class="bg-secondary block-title">
                     <div class="container">
-                        <h2 class="text-uppercase color-dark text-bold no-margin">Portfolio</h2>
+                        <h2 class="text-uppercase color-dark text-bold no-margin">Байки у костра</h2>
                         <div class="title-icon"> <i class="fa fa-inbox"></i> </div>
                     </div>
                 </div>
@@ -304,7 +304,7 @@
                         </div>
                     </div>
                     <!--BTN SHOW MORE-->
-                    <div class="box-btn-more"><a href="portfolio-list.html" class="btn btn-flat-line btn-link" id="more-work"> Show More</a></div>
+                    <div class="box-btn-more"><a href="portfolio-list.html" class="btn btn-flat-line btn-link" id="more-work"> Показать все</a></div>
                 </div>
             </div><!--END List WOrk-->
             <!--TESTIMONIAL-->
@@ -386,6 +386,7 @@
         </section> <!--END BLOG-->
         <!--CONTACT-->
         <section id="contact" class="block-section">
+            
             <!--CONTACT TITLE-->
             <div class=" shape-bottom">
                 <div class="bg-secondary block-title">
@@ -395,101 +396,104 @@
                     </div>
                 </div>
             </div><!--END CONTACT TITLE-->
+            <div class="white-space-50"></div>
+            <ul class="skill top list-unstyled clearfix">
+                <li class="col-sm-6 col-xs-12 padding-left-30">
+                        <div class="form-contact-area clearfix">
+                            <div class="inner-contact clearfix ">
+                                <!--TABS CONTACT-->
+                                <ul id="myTab" class="nav nav-tabs flat-nav-tabs" role="tablist">
+                                    <li class="active"><a href="#tab0" role="tab" data-toggle="tab">Contact Me</a></li>
+                                    <li><a href="#tab1" role="tab" data-toggle="tab">Hire Me</a></li>
+                                </ul>
 
-            <div class="contact-area">
-                <div class="form-contact-area clearfix">
-                    <div class="inner-contact clearfix ">
-                        <!--TABS CONTACT-->
-                        <ul id="myTab" class="nav nav-tabs flat-nav-tabs" role="tablist">
-                            <li class="active"><a href="#tab0" role="tab" data-toggle="tab">Contact Me</a></li>
-                            <li><a href="#tab1" role="tab" data-toggle="tab">Hire Me</a></li>
-                        </ul>
+                                <div id="myTabContent" class="tab-content flat-tab-content">
+                                    <div class="tab-pane fade in active" id="tab0">
+                                        <form method="post" id="contactForm" name="contactForm">
+                                            <input type="hidden" name="subject" value="Message Contact Form">
+                                            <div class="form-group">
+                                                <label>Your Name (*)</label>
+                                                <input type="text" class="form-control form-flat" name="fullname" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Email (*)</label>
+                                                <input type="email" class="form-control form-flat" name="email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Your Message (*)</label>
+                                                <textarea class="form-control form-flat" name="message" rows="8" required></textarea>
+                                            </div>
 
-                        <div id="myTabContent" class="tab-content flat-tab-content">
-                            <div class="tab-pane fade in active" id="tab0">
-                                <form method="post" id="contactForm" name="contactForm">
-                                    <input type="hidden" name="subject" value="Message Contact Form">
-                                    <div class="form-group">
-                                        <label>Your Name (*)</label>
-                                        <input type="text" class="form-control form-flat" name="fullname" required>
+                                            <div class="form-group">
+                                                <div id="captcha1"></div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <button type="submit" class="btn btn-flat-solid primary-btn">Send Message</button>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="preload-submit hidden"><hr /> <i class="fa fa-spinner fa-spin"></i> Please Wait ...</div>
+                                                <div class="message-submit error hidden"></div>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Email (*)</label>
-                                        <input type="email" class="form-control form-flat" name="email" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Your Message (*)</label>
-                                        <textarea class="form-control form-flat" name="message" rows="8" required></textarea>
-                                    </div>
+                                    <div class="tab-pane fade" id="tab1">
+                                        <form method="post" id="hireForm" name="hireForm">
+                                            <input type="hidden" name="subject" value="Message Hire Form">
+                                            <input type="hidden" name="file" id="file-att" value="">
+                                            <div class="form-group">
+                                                <label>Your Name (*)</label>
+                                                <input type="text" class="form-control form-flat" name="fullname" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Email (*)</label>
+                                                <input type="email" class="form-control form-flat" name="email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Short Description About of Project (*)</label>
+                                                <textarea class="form-control form-flat" name="message" rows="8" required></textarea>
+                                            </div>
 
-                                    <div class="form-group">
-                                        <div id="captcha1"></div>
+                                            <div class="form-group">
+                                                <label>Attach Your Document <span class="display-block color-dark">(only .pdf  allowed , max size 200Kb)</span></label>
+                                                <div class="clearfix">
+                                                    <input type="button" id="upload-btn" class="btn btn-flat-solid btn-file btn-xs btn-default  clearfix" value="Choose file">
+                                                    <div id="errormsg" class="clearfix error"></div>
+                                                    <div id="pic-progress-wrap" class="progress-wrap"></div>
+                                                    <div id="picbox" class="attbox color-dark"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div id="captcha2"></div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-flat-solid primary-btn">Send Request</button>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="preload-submit hidden"><hr /> <i class="fa fa-spinner fa-spin"></i> Please Wait ...</div>
+                                                <div class="message-submit error hidden"></div>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="form-group ">
-                                        <button type="submit" class="btn btn-flat-solid primary-btn">Send Message</button>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="preload-submit hidden"><hr /> <i class="fa fa-spinner fa-spin"></i> Please Wait ...</div>
-                                        <div class="message-submit error hidden"></div>
-                                    </div>
-                                </form>
+                                </div><!--End Tabs-->
                             </div>
-                            <div class="tab-pane fade" id="tab1">
-                                <form method="post" id="hireForm" name="hireForm">
-                                    <input type="hidden" name="subject" value="Message Hire Form">
-                                    <input type="hidden" name="file" id="file-att" value="">
-                                    <div class="form-group">
-                                        <label>Your Name (*)</label>
-                                        <input type="text" class="form-control form-flat" name="fullname" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email (*)</label>
-                                        <input type="email" class="form-control form-flat" name="email" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Short Description About of Project (*)</label>
-                                        <textarea class="form-control form-flat" name="message" rows="8" required></textarea>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Attach Your Document <span class="display-block color-dark">(only .pdf  allowed , max size 200Kb)</span></label>
-                                        <div class="clearfix">
-                                            <input type="button" id="upload-btn" class="btn btn-flat-solid btn-file btn-xs btn-default  clearfix" value="Choose file">
-                                            <div id="errormsg" class="clearfix error"></div>
-                                            <div id="pic-progress-wrap" class="progress-wrap"></div>
-                                            <div id="picbox" class="attbox color-dark"></div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div id="captcha2"></div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-flat-solid primary-btn">Send Request</button>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="preload-submit hidden"><hr /> <i class="fa fa-spinner fa-spin"></i> Please Wait ...</div>
-                                        <div class="message-submit error hidden"></div>
-                                    </div>
-                                </form>
+                        </div>
+                </li>
+                <li class="col-sm-6 col-xs-12 no-padding">
+                        <div class="form-contact-area clearfix">
+                            <div class="inner-contact clearfix ">
+                                <h3 class="color-dark text-capitalize no-margin-top line-dash-bottom text-center"> Контактная информация </h3>
+                                <h5 class="color-dark no-margin-top" style="padding-left:50px"><i class="fa fa-laptop"></i>  <b style="padding-left:10px"> IP игровой сервера:</b>   127.0.0.1 </h5>
+                                <h5 class="color-dark no-margin-top" style="padding-left:50px"><i class="fa fa-laptop"></i>  <b style="padding-left:10px"> TeamSpeak сервера:</b>   dippy.nlhst.com </h5>
+                                <h5 class="color-dark no-margin-top" style="padding-left:50px"><i class="fa fa-laptop"></i>  <b style="padding-left:10px"> Почтовый ящик администрации:</b>   outbreak@outbreak.ru </h5>
+                                <h5 class="color-dark no-margin-top" style="padding-left:50px"><i class="fa fa-laptop"></i>  <b style="padding-left:10px"> Furik (Сергей):</b>   <a href="http://dippytest1-001-site1.dtempurl.com/id/Furik"> http://dippytest1-001-site1.dtempurl.com/id/Furik </a></h5>
+                                <h5 class="color-dark no-margin-top" style="padding-left:50px"><i class="fa fa-laptop"></i>  <b style="padding-left:10px"> Dippy (Денис):</b>   <a href="http://dippytest1-001-site1.dtempurl.com/id/Dippy"> http://dippytest1-001-site1.dtempurl.com/id/Dippy </a></h5>
                             </div>
-                        </div><!--End Tabs-->
-                    </div>
-                </div>
-
-                <!--MAP-->
-                <div class="map-area" id="map-contact"></div>
-                <div class="hidden map-contact-body">
-                    <div class="map-content">
-                        <h4 class="no-margin-top font-alt">Iam Here</h4>
-                        <p><i class="fa fa-map-marker"></i> <strong>Address:</strong> 8723 Bogor, West Java</p>
-                        <p><i class="fa fa-mobile"></i> <strong>Phone:</strong> 87-3898-221 </p>
-                        <p><i class="fa fa-envelope"></i> <strong>Email:</strong> someone@company.com</p>
-                    </div>
-                </div>
-                <!--END MAP-->
-            </div>
+                        </div>
+                </li>
+            </ul>
+            <div class="white-space-50"></div>
         </section><!--END CONTACT-->
         <!--FOOTER-->
         <footer class="main-footer">
@@ -515,7 +519,7 @@
                     </li>
                 </ul>
                 <p class="text-center no-margin">
-                    Solid - All Rights Reserved &COPY; 2014
+                    Furik, Dippy &COPY; 2017
                 </p>
                 <a href="#home" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
             </div>
@@ -530,10 +534,9 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="assets/plugins/jquery.js"></script>
     <script src="assets/plugins/bootstrap-3.3.1/js/bootstrap.min.js"></script>
-
     <!-- maps js -->
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
-    <script src="assets/plugins/jquery.ui.map.js"></script>
+    <script src="assets/plugins/jquery.ui.map.js"></script> 
     <!-- advanced easing options -->
     <script src="assets/plugins/jquery.easing-1.3.pack.js"></script>
     <!-- parallax bg js -->
