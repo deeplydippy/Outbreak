@@ -425,7 +425,7 @@ hr {
   background: #323232;
 }
 .carousel-testi .carousel-indicators li {
-  border-color: #000000;
+  border-color: #ffffff;
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3) !important;
   -webkit-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3) !important;
   -moz-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3) !important;
@@ -435,7 +435,7 @@ hr {
 }
 .carousel-testi .carousel-indicators li.active,
 .carousel-testi .carousel-indicators li:hover {
-  background: #000000;
+  background: #ffffff;
 }
 /*============================
      06. MAIN-FOOTER
