@@ -100,6 +100,9 @@ h6 {
 .bg2 {
   background-image: url(../images/bg2.jpg);
 }
+.bg3 {
+    background-image: url(../images/top.jpg);
+}
 .container-medium {
   padding-right: 15px;
   padding-left: 15px;
