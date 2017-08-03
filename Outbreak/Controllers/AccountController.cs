@@ -83,7 +83,7 @@ namespace Outbreak.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Неверный логин/пароль!");
                     return View(model);
                 }
             }

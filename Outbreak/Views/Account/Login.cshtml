@@ -5,87 +5,126 @@
 @inject SignInManager<ApplicationUser> SignInManager
 
 @{
-    ViewData["Title"] = "Log in";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewData["Title"].</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section>
-            <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Email" class="col-md-2 control-label"></label>
-                    <div class="col-md-10">
-                        <input asp-for="Email" class="form-control" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
+<body data-spy="scroll" data-target=".menu-area" data-offset="200">
+    <!--wrapper page-->
+    <div class="wrapper">
+
+        <!-- Main Header -->
+        <header class="main-header no-window" id="home">
+            <div class="content-table header-content-fixed ">
+                <div class="whoim">
+                    <div class="box-line text-uppercase text-bold">
+                        OUTBREAK
                     </div>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Password" class="col-md-2 control-label"></label>
-                    <div class="col-md-10">
-                        <input asp-for="Password" class="form-control" />
-                        <span asp-validation-for="Password" class="text-danger"></span>
+                <div class="v-content">
+                    <div class="container">
+                        <h1 class="text-uppercase color-dark name">Кем будешь ты?</h1>
+                        <h4 class="text-uppercase color-dark font-alt job"><span id="typed" class="typed"></span></h4>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            <label asp-for="RememberMe">
-                                <input asp-for="RememberMe" />
-                                @Html.DisplayNameFor(m => m.RememberMe)
-                            </label>
+            </div>
+
+
+            <!-- Main navbar -->
+            <div class="menu-area">
+                <div class="toogle-bars">
+                    <a href="#menu-collapse" data-toggle="collapse" class="collapsed"><i class="fa fa-bars ic-open"></i> <i class="fa fa-remove ic-close"></i>Меню</a>
+                </div>
+                <div class="menu-collapse collapse" id="menu-collapse">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6">
+                                <ul class="breadcrumb main-nav nav">
+                                    <li class="active"><a href="/" class="link-inpage">Домой</a></li>
+                                    <li class="active"><a href="/" class="link-inpage">Правила</a></li>
+                                    <li class="active"><a href="/Account/Register" class="link-inpage">Зарегистрироваться</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3"> </div>
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <button type="submit" class="btn btn-default">Log in</button>
+            </div><!-- End Main navbar -->
+        </header><!-- End Main Header -->
+        <!-- SERVICES-->
+        <section class="block-section">
+            <!-- SERVICES-->
+            <div class="container">
+                <div class="row list-work">
+                    <div class="col-md-2 col-sm-2"></div>
+                    <div class="col-md-8 col-sm-8">
+                        <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+                            <h4 class="text-center text-danger">Вход</h4>
+                            <hr />
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="Email" class="col-md-2 control-label"></label>
+                                <div class="col-md-10">
+                                    <input asp-for="Email" class="form-control" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Password" class="col-md-2 control-label"></label>
+                                <div class="col-md-10">
+                                    <input asp-for="Password" class="form-control" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <div class="checkbox">
+                                        <label asp-for="RememberMe">
+                                            <input asp-for="RememberMe" />
+                                            @Html.DisplayNameFor(m => m.RememberMe)
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-4 col-md-12 center-block">
+                                    <button type="submit" class="btn btn-default center-block">Войти</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
+                    <div class="col-md-2 col-sm-2"></div>
                 </div>
-                <p>
-                    <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">Register as a new user?</a>
-                </p>
-                <p>
-                    <a asp-action="ForgotPassword">Forgot your password?</a>
-                </p>
-            </form>
+            </div><!-- END SERVICES-->
+            <div class="white-space-50"></div>
         </section>
-    </div>
-    <div class="col-md-4">
-        <section>
-            <h4>Use another service to log in.</h4>
-            <hr />
-            @{
-                var loginProviders = SignInManager.GetExternalAuthenticationSchemes().ToList();
-                if (loginProviders.Count == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
-                            for details on setting up this ASP.NET application to support logging in via external services.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form asp-controller="Account" asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in loginProviders)
-                                {
-                                    <button type="submit" class="btn btn-default" name="provider" value="@provider.AuthenticationScheme" title="Log in using your @provider.DisplayName account">@provider.AuthenticationScheme</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
+        <!--FOOTER-->
+        <footer class="main-footer">
+            <div class="container">
+                <div class="folow-me">
+                    До новых встреч!
+                </div>
+                <p class="text-center no-margin">
+                    Furik, Dippy &COPY; 2017
+                </p>
+                <a href="#home" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+            </div>
+        </footer><!--END FOOTER-->
+    </div><!--End wrapper page-->
+    <script>
+        window.onload = function () {
+            document.getElementById("reg").setAttribute("disabled", "disabled");
+            var c = document.querySelector('#rules');
+            c.onclick = function () {
+                if (c.checked) {
+                    document.getElementById("reg").removeAttribute("disabled");
+                } else {
+                    document.getElementById("reg").setAttribute("disabled", "disabled");
                 }
             }
-        </section>
-    </div>
-</div>
+        }
+    </script>
+</body>
 
 @section Scripts {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
