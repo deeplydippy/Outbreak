@@ -63,12 +63,33 @@
                         <form asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
                             <h4 class="text-center text-danger">Прочитай правила перед регистрацией!</h4>
                             <hr />
-                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div asp-validation-summary="All" class="text-danger text-center"></div>
                             <div class="form-group">
                                 <label asp-for="Email" class="col-md-3 control-label"></label>
                                 <div class="col-md-7">
                                     <input asp-for="Email" class="form-control" />
                                     <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="commNick" class="col-md-3 control-label"></label>
+                                <div class="col-md-7">
+                                    <input asp-for="commNick" class="form-control" />
+                                    <span asp-validation-for="commNick" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="steamLink" class="col-md-3 control-label"></label>
+                                <div class="col-md-7">
+                                    <input asp-for="steamLink" class="form-control" />
+                                    <span asp-validation-for="steamLink" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="vkLink" class="col-md-3 control-label"></label>
+                                <div class="col-md-7">
+                                    <input asp-for="vkLink" class="form-control" />
+                                    <span asp-validation-for="vkLink" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -85,12 +106,13 @@
                                     <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                                 </div>
                             </div>
-                            <div class="form-group" style="padding-left:150px">
-                                <div class="checkbox flat-checkbox">
+                            <div class="form-group">
+                                <div class="col-md-3"></div>
+                                <div class="checkbox flat-checkbox col-lg-9">
                                     <label for="rules">
                                         <input type="checkbox" id="rules">
                                         <span class="fa fa-check"></span>
-                                        С правилами проекта ознакомлен и обязуюсь их выполнять
+                                        С правилами проекта ознакомлен и согласен
                                     </label>
                                 </div>
                             </div>

@@ -8,9 +8,10 @@ using Outbreak.Data;
 namespace Outbreak.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170803205221_addSteamLink")]
+    partial class addSteamLink
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -161,15 +162,7 @@ namespace Outbreak.Data.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
 
-                    b.Property<string>("commNick");
-
-                    b.Property<string>("docCode");
-
                     b.Property<string>("steamLink");
-
-                    b.Property<string>("tempNick");
-
-                    b.Property<string>("vkLink");
 
                     b.HasKey("Id");
 
