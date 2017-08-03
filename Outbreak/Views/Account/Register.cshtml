@@ -39,6 +39,7 @@
                             <div class="col-md-6">
                                 <ul class="breadcrumb main-nav nav">
                                     <li class="active"><a href="/" class="link-inpage">Домой</a></li>
+                                    <li class="active"><a href="/" class="link-inpage">Правила</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-3">
@@ -57,41 +58,50 @@
             <!-- SERVICES-->
             <div class="container">
                 <div class="row list-work">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6 col-sm-6">
+                    <div class="col-md-2 col-sm-2"></div>
+                    <div class="col-md-8 col-sm-8">
                         <form asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
                             <h4 class="text-center text-danger">Прочитай правила перед регистрацией!</h4>
                             <hr />
                             <div asp-validation-summary="All" class="text-danger"></div>
                             <div class="form-group">
-                                <label asp-for="Email" class="col-md-2 control-label"></label>
-                                <div class="col-md-10">
+                                <label asp-for="Email" class="col-md-3 control-label"></label>
+                                <div class="col-md-7">
                                     <input asp-for="Email" class="form-control" />
                                     <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Password" class="col-md-2 control-label"></label>
-                                <div class="col-md-10">
+                                <label asp-for="Password" class="col-md-3 control-label"></label>
+                                <div class="col-md-7">
                                     <input asp-for="Password" class="form-control" />
                                     <span asp-validation-for="Password" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label asp-for="ConfirmPassword" class="col-md-2 control-label"></label>
-                                <div class="col-md-10">
+                                <label asp-for="ConfirmPassword" class="col-md-3 control-label"></label>
+                                <div class="col-md-7">
                                     <input asp-for="ConfirmPassword" class="form-control" />
                                     <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                                 </div>
                             </div>
+                            <div class="form-group" style="padding-left:150px">
+                                <div class="checkbox flat-checkbox">
+                                    <label for="rules">
+                                        <input type="checkbox" id="rules">
+                                        <span class="fa fa-check"></span>
+                                        С правилами проекта ознакомлен и обязуюсь их выполнять
+                                    </label>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <div class="col-md-offset-4 col-lg-12 center-block">
-                                    <button type="submit" class="btn btn-default center-block">Зарегистрироваться</button>
+                                    <button id="reg" type="submit" class="btn btn-default center-block">Зарегистрироваться</button>
                                 </div>
                             </div>
                         </form>
                     </div>
-                    <div class="col-md-3"></div>
+                    <div class="col-md-2 col-sm-2"></div>
                 </div>
             </div><!-- END SERVICES-->
             <div class="white-space-50"></div>
@@ -109,6 +119,19 @@
             </div>
         </footer><!--END FOOTER-->
     </div><!--End wrapper page-->
+    <script>
+        window.onload = function () {
+            document.getElementById("reg").setAttribute("disabled", "disabled");
+            var c = document.querySelector('#rules');
+            c.onclick = function () {
+                if (c.checked) {
+                    document.getElementById("reg").removeAttribute("disabled");
+                } else {
+                    document.getElementById("reg").setAttribute("disabled", "disabled");
+                }
+            }
+        }
+    </script>
 </body>
 
 @section Scripts {

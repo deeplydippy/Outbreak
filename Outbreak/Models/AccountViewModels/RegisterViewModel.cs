@@ -8,20 +8,20 @@ namespace Outbreak.Models.AccountViewModels
 {
     public class RegisterViewModel
     {
-        [Required]
-        [EmailAddress]
+        [Required (ErrorMessage = "Адрес электронной почты обязателен")]
+        [EmailAddress(ErrorMessage = "Некорректный адрес электронной почты")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 5)]
+        [Required(ErrorMessage = "Пароль обязателен")]
+        [StringLength(100, ErrorMessage = "Пароль должен быть от {2} до {1} символов длиной", MinimumLength = 5)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Пароль")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Повторить пароль")]
+        [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         public string ConfirmPassword { get; set; }
     }
 }
