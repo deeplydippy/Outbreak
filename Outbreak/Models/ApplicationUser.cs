@@ -14,5 +14,7 @@ namespace Outbreak.Models
         public string commNick { get; set; } //nick for site and TS
         public string tempNick { get; set; } //nick in game
         public string docCode { get; set; } //code of nick
+        public bool ShowVK { get; set; }
+        public bool ShowSteam { get; set; }
     }
 }

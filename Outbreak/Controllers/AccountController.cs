@@ -12,6 +12,7 @@ using Microsoft.Extensions.Options;
 using Outbreak.Models;
 using Outbreak.Models.AccountViewModels;
 using Outbreak.Services;
+using Outbreak.Data;
 
 namespace Outbreak.Controllers
 {
@@ -24,8 +25,10 @@ namespace Outbreak.Controllers
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
         private readonly string _externalCookieScheme;
+        private readonly ApplicationDbContext _context;
 
         public AccountController(
+            ApplicationDbContext context,
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IOptions<IdentityCookieOptions> identityCookieOptions,
@@ -39,6 +42,7 @@ namespace Outbreak.Controllers
             _emailSender = emailSender;
             _smsSender = smsSender;
             _logger = loggerFactory.CreateLogger<AccountController>();
+            _context = context;
         }
 
         //
@@ -449,6 +453,59 @@ namespace Outbreak.Controllers
         public IActionResult AccessDenied()
         {
             return View();
+        }
+
+        // GET: /Account/Profile/id
+        [HttpGet]
+        [Authorize]
+        public IActionResult Profile(string id)
+        {
+            ApplicationUser me = _context.Users.SingleOrDefault(m => m.UserName == User.Identity.Name);
+            if(me.Id == id)
+            {
+                ViewData["myAccount"] = true;
+            }
+            else
+            {
+                ViewData["myAccount"] = false;
+            }
+            ViewData["meNick"] = me.commNick;
+            ViewData["VK"] = me.vkLink;
+            ViewData["Steam"] = me.steamLink;
+            ViewData["shVK"] = me.ShowVK;
+            ViewData["shSteam"] = me.ShowSteam;
+            return View();
+        }
+
+        // POST: /Account/Profile/id
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Profile(ProfileViewModel model, string id)
+        {
+            if (ModelState.IsValid)
+            {
+                ApplicationUser me = _context.Users.SingleOrDefault(m => m.UserName == User.Identity.Name);
+                me.ShowVK = model.ShowVK;
+                me.ShowSteam = model.ShowSteam;
+                if (me.Id == id)
+                {
+                    ViewData["myAccount"] = true;
+                }
+                else
+                {
+                    ViewData["myAccount"] = false;
+                }
+                ViewData["shVK"] = me.ShowVK;
+                ViewData["shSteam"] = me.ShowSteam;
+                ViewData["meNick"] = me.commNick;
+                ViewData["VK"] = me.vkLink;
+                ViewData["Steam"] = me.steamLink;
+                _context.SaveChanges();
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
         }
 
         #region Helpers

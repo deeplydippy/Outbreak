@@ -1,0 +1,188 @@
+﻿@model ProfileViewModel
+<body data-spy="scroll" data-target=".menu-area" data-offset="200">
+    <!--wrapper page-->
+    <div class="wrapper">
+
+        <!-- Main Header -->
+        <header class="main-header" id="home">
+            <div class="content-table header-content-fixed ">
+                <div class="whoim">
+                    <div class="box-line text-uppercase text-bold">
+                        OUTBREAK
+                    </div>
+                </div>
+                <div class="v-content">
+                    <div class="container">
+                        <h1 class="text-uppercase color-dark name">Кем будешь ты?</h1>
+                        <h4 class="text-uppercase color-dark font-alt job"><span id="typed" class="typed"></span></h4>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Main navbar -->
+            <div class="menu-area">
+                <div class="toogle-bars">
+                    <a href="#menu-collapse" data-toggle="collapse" class="collapsed"><i class="fa fa-bars ic-open"></i> <i class="fa fa-remove ic-close"></i>Меню</a>
+                </div>
+                <div class="menu-collapse collapse" id="menu-collapse">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6">
+                                <ul class="breadcrumb main-nav nav">
+                                    <li class="active"><a href="/home/index" class="link-inpage">Домой</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <ul class="breadcrumb main-nav no-space">
+                                        <li class="link-inpage"><a asp-controller="Account" asp-action="Logoff" id="hireme-tab" asp-route-returnurl="/home/index" class="link-inpage"> Выйти</a></li>
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End Main navbar -->
+        </header><!-- End Main Header -->
+        
+        <section class="block-section">
+            <div class="white-space-50"></div>
+            <div class="container-medium">
+                <div class="form-contact-area clearfix">
+                    <div class="inner-contact clearfix ">
+                        <!--TABS CONTACT-->
+                        <ul id="myTab" class="nav nav-tabs flat-nav-tabs" role="tablist">
+                            <li class="active"><a href="#tab0" role="tab" data-toggle="tab">Разведданные</a></li>
+                            <li><a href="#tab1" role="tab" data-toggle="tab">Персонажи</a></li>
+                            <li><a href="#tab2" role="tab" data-toggle="tab">Задачи</a></li>
+                            <li><a href="#tab3" role="tab" data-toggle="tab">Дневник</a></li>
+                            @if (ViewBag.myAccount)
+                            {
+                            <li><a href="#tab4" role="tab" data-toggle="tab">Настройки</a></li>
+                            }
+                        </ul>
+
+                        <div id="myTabContent" class="tab-content flat-tab-content">
+                            <div class="tab-pane fade in active" id="tab0">
+                                <div class="col-md-4"><img src="~/assets/theme/images/Avatar.jpg"></div>
+                                <div class="col-md-8">
+                                   <h4> Ник: <text class="color-dark"> @ViewBag.meNick </text></h4>
+                                    <div class="col-md-4">
+                                        @if (ViewBag.shVK)
+                                        {
+                                            <form action="@ViewBag.VK">
+                                                <button type="submit" class="btn  btn-info btn-flat-solid btn-pill">Вконтакте</button>
+                                            </form>
+                                        }
+                                    </div>
+                                    <div class="col-md-4">
+                                        @if (ViewBag.shSteam)
+                                        {
+                                            <form action="@ViewBag.Steam">
+                                                <button type="submit" class="btn btn-primary btn-flat-solid btn-pill">Steam</button>
+                                            </form>
+                                        }
+                                        </div>
+                               </div>
+                            </div>
+                            <div class="tab-pane fade" id="tab1">
+                                <form method="post" id="hireForm" name="hireForm">
+                                    <input type="hidden" name="subject" value="Message Hire Form">
+                                    <input type="hidden" name="file" id="file-att" value="">
+                                    <div class="form-group">
+                                        <label>Your Name (*)</label>
+                                        <input type="text" class="form-control form-flat" name="fullname" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email (*)</label>
+                                        <input type="email" class="form-control form-flat" name="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Short Description About of Project (*)</label>
+                                        <textarea class="form-control form-flat" name="message" rows="8" required></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Attach Your Document <span class="display-block color-dark">(only .pdf  allowed , max size 200Kb)</span></label>
+                                        <div class="clearfix">
+                                            <input type="button" id="upload-btn" class="btn btn-flat-solid btn-file btn-xs btn-default  clearfix" value="Choose file">
+                                            <div id="errormsg" class="clearfix error"></div>
+                                            <div id="pic-progress-wrap" class="progress-wrap"></div>
+                                            <div id="picbox" class="attbox color-dark"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div id="captcha2"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-flat-solid primary-btn">Send Request</button>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="preload-submit hidden"><hr /> <i class="fa fa-spinner fa-spin"></i> Please Wait ...</div>
+                                        <div class="message-submit error hidden"></div>
+                                    </div>
+                                </form>
+                            </div>
+                            @if (ViewBag.myAccount)
+                            {
+                            <div class="tab-pane fade" id="tab4">
+                                <form asp-controller="Account" asp-action="Profile" method="post" class="form-horizontal">
+                                    <div class="white-space-20"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <div class="checkbox">
+                                                <label asp-for="ShowVK">
+                                                    <input asp-for="ShowVK" />
+                                                    @Html.DisplayNameFor(m => m.ShowVK)
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <div class="checkbox">
+                                                <label asp-for="ShowSteam">
+                                                    <input asp-for="ShowSteam" />
+                                                    @Html.DisplayNameFor(m => m.ShowSteam)
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-4 col-md-12 center-block">
+                                            <button type="submit" class="btn btn-default center-block">Сохранить</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            }
+                        </div><!--End Tabs-->
+                    </div>
+                </div>
+            </div>
+            <div class="white-space-50"></div>
+        </section>
+
+            <!--FOOTER-->
+            <footer class="main-footer">
+                <div class="container">
+                    <div class="folow-me">
+                        До новых встреч!
+                    </div>
+                    <p class="text-center no-margin">
+                        Furik, Dippy &COPY; 2017
+                    </p>
+                    <a href="#home" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+                </div>
+            </footer><!--END FOOTER-->
+</div><!--End wrapper page-->
+    <!-- generate captcha -->
+    <div id="mycaptcha-wrap" class="hidden mycaptcha1">
+        <div id="mycaptcha" class="mycaptcha1"></div>
+    </div>
+</body>
