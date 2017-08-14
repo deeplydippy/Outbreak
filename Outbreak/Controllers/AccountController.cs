@@ -13,6 +13,7 @@ using Outbreak.Models;
 using Outbreak.Models.AccountViewModels;
 using Outbreak.Services;
 using Outbreak.Data;
+using System.IO;
 
 namespace Outbreak.Controllers
 {
@@ -461,7 +462,8 @@ namespace Outbreak.Controllers
         public IActionResult Profile(string id)
         {
             ApplicationUser me = _context.Users.SingleOrDefault(m => m.UserName == User.Identity.Name);
-            if(me.Id == id)
+            ApplicationUser user = _context.Users.SingleOrDefault(m => m.Id == id);
+            if (me.Id == id)
             {
                 ViewData["myAccount"] = true;
             }
@@ -469,11 +471,12 @@ namespace Outbreak.Controllers
             {
                 ViewData["myAccount"] = false;
             }
-            ViewData["meNick"] = me.commNick;
-            ViewData["VK"] = me.vkLink;
-            ViewData["Steam"] = me.steamLink;
-            ViewData["shVK"] = me.ShowVK;
-            ViewData["shSteam"] = me.ShowSteam;
+            ViewData["meNick"] = user.commNick;
+            ViewData["VK"] = user.vkLink;
+            ViewData["Steam"] = user.steamLink;
+            ViewData["shVK"] = user.ShowVK;
+            ViewData["shSteam"] = user.ShowSteam;
+            ViewData["Avatar"] = user.Avatar;
             return View();
         }
 
@@ -486,8 +489,22 @@ namespace Outbreak.Controllers
             if (ModelState.IsValid)
             {
                 ApplicationUser me = _context.Users.SingleOrDefault(m => m.UserName == User.Identity.Name);
+                ApplicationUser user = _context.Users.SingleOrDefault(m => m.Id == id);
                 me.ShowVK = model.ShowVK;
                 me.ShowSteam = model.ShowSteam;
+
+                if (model.Avatar != null)
+                {
+                    byte[] imageData = null;
+                    // считываем переданный файл в массив байтов
+                    using (var binaryReader = new BinaryReader(model.Avatar.OpenReadStream()))
+                    {
+                        imageData = binaryReader.ReadBytes((int)model.Avatar.Length);
+                    }
+                    // установка массива байтов
+                    me.Avatar = imageData;
+                }
+
                 if (me.Id == id)
                 {
                     ViewData["myAccount"] = true;
@@ -496,11 +513,12 @@ namespace Outbreak.Controllers
                 {
                     ViewData["myAccount"] = false;
                 }
-                ViewData["shVK"] = me.ShowVK;
-                ViewData["shSteam"] = me.ShowSteam;
-                ViewData["meNick"] = me.commNick;
-                ViewData["VK"] = me.vkLink;
-                ViewData["Steam"] = me.steamLink;
+                ViewData["meNick"] = user.commNick;
+                ViewData["VK"] = user.vkLink;
+                ViewData["Steam"] = user.steamLink;
+                ViewData["shVK"] = user.ShowVK;
+                ViewData["shSteam"] = user.ShowSteam;
+                ViewData["Avatar"] = user.Avatar;
                 _context.SaveChanges();
             }
 

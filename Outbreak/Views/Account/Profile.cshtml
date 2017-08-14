@@ -58,34 +58,49 @@
                             <li class="active"><a href="#tab0" role="tab" data-toggle="tab">Разведданные</a></li>
                             <li><a href="#tab1" role="tab" data-toggle="tab">Персонажи</a></li>
                             <li><a href="#tab2" role="tab" data-toggle="tab">Задачи</a></li>
-                            <li><a href="#tab3" role="tab" data-toggle="tab">Дневник</a></li>
                             @if (ViewBag.myAccount)
                             {
-                            <li><a href="#tab4" role="tab" data-toggle="tab">Настройки</a></li>
+                            <li><a href="#tab3" role="tab" data-toggle="tab">Настройки</a></li>
                             }
                         </ul>
 
                         <div id="myTabContent" class="tab-content flat-tab-content">
                             <div class="tab-pane fade in active" id="tab0">
-                                <div class="col-md-4"><img src="~/assets/theme/images/Avatar.jpg"></div>
+                                @if(ViewBag.Avatar != null && ViewBag.Avatar.Length > 0)
+                                { 
+                                <div class="col-md-4"><img src="data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.Avatar))"></div>
+                                }
+                                else
+                                {
+                                    <div class="col-md-4"><img src="~/assets/theme/images/Avatar.jpg"></div>
+                                }
                                 <div class="col-md-8">
                                    <h4> Ник: <text class="color-dark"> @ViewBag.meNick </text></h4>
                                     <div class="col-md-4">
                                         @if (ViewBag.shVK)
                                         {
                                             <form action="@ViewBag.VK">
-                                                <button type="submit" class="btn  btn-info btn-flat-solid btn-pill">Вконтакте</button>
+                                                <button type="submit" class="btn btn-info btn-flat-solid btn-pill">Вконтакте</button>
                                             </form>
+                                        }
+                                        else
+                                        {
+                                            @if (ViewBag.shSteam)
+                                            {
+                                                <form action="@ViewBag.Steam">
+                                                    <button type="submit" class="btn btn-primary btn-flat-solid btn-pill">Steam</button>
+                                                </form>
+                                            }
                                         }
                                     </div>
                                     <div class="col-md-4">
-                                        @if (ViewBag.shSteam)
+                                        @if (ViewBag.shSteam && ViewBag.shVK)
                                         {
                                             <form action="@ViewBag.Steam">
                                                 <button type="submit" class="btn btn-primary btn-flat-solid btn-pill">Steam</button>
                                             </form>
                                         }
-                                        </div>
+                                </div>
                                </div>
                             </div>
                             <div class="tab-pane fade" id="tab1">
@@ -130,9 +145,24 @@
                             </div>
                             @if (ViewBag.myAccount)
                             {
-                            <div class="tab-pane fade" id="tab4">
-                                <form asp-controller="Account" asp-action="Profile" method="post" class="form-horizontal">
+                            <div class="tab-pane fade" id="tab3">
+                                <form asp-controller="Account" asp-action="Profile" method="post" class="form-horizontal" enctype="multipart/form-data">
                                     <div class="white-space-20"></div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-8">
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                                                    <span class="btn btn-default btn-flat-solid btn-file">
+                                                        Аватар  <input name="Avatar" type="file">
+                                                    </span>
+                                                </span>
+                                                <input type="text" class="form-control form-flat" readonly>
+                                            </div>
+                                        </div>
+                                   </div>
+
+
                                     <div class="form-group">
                                         <div class="col-md-offset-2 col-md-10">
                                             <div class="checkbox">

@@ -16,5 +16,6 @@ namespace Outbreak.Models
         public string docCode { get; set; } //code of nick
         public bool ShowVK { get; set; }
         public bool ShowSteam { get; set; }
+        public byte[] Avatar { get; set; }
     }
 }
