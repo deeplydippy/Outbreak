@@ -8,9 +8,10 @@ using Outbreak.Data;
 namespace Outbreak.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170814210256_check_check1")]
+    partial class check_check1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -189,32 +190,6 @@ namespace Outbreak.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("Outbreak.Models.Character", b =>
-                {
-                    b.Property<int>("CharacterId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("Roles");
-
-                    b.Property<string>("UserId");
-
-                    b.Property<string>("identityCode");
-
-                    b.Property<bool>("live");
-
-                    b.Property<string>("signature");
-
-                    b.Property<string>("subRoles");
-
-                    b.HasKey("CharacterId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Characters");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")
@@ -250,13 +225,6 @@ namespace Outbreak.Data.Migrations
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Outbreak.Models.Character", b =>
-                {
-                    b.HasOne("Outbreak.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
         }
     }

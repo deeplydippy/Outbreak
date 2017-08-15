@@ -1,0 +1,101 @@
+﻿<body data-spy="scroll" data-target=".menu-area" data-offset="200">
+    <!--wrapper page-->
+    <div class="wrapper">
+
+        <!-- Main Header -->
+        <header class="main-header no-window" id="home">
+            <div class="content-table header-content-fixed ">
+                <div class="whoim">
+                    <div class="box-line text-uppercase text-bold">
+                        OUTBREAK
+                    </div>
+                </div>
+                <div class="v-content">
+                    <div class="container">
+                        <h1 class="text-uppercase color-dark name">Кем будешь ты?</h1>
+                        <h4 class="text-uppercase color-dark font-alt job"><span id="typed" class="typed"></span></h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main navbar -->
+            <div class="menu-area">
+                <div class="toogle-bars">
+                    <a href="#menu-collapse" data-toggle="collapse" class="collapsed"><i class="fa fa-bars ic-open"></i> <i class="fa fa-remove ic-close"></i>Меню</a>
+                </div>
+                <div class="menu-collapse collapse" id="menu-collapse">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6">
+                                <ul class="breadcrumb main-nav nav">
+                                    <li><a href="/home/index" class="link-inpage">Домой</a></li>
+                                    <li><a href="/account/profile/@ViewBag.Player.Id" class="link-inpage">Назад в профиль</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <ul class="breadcrumb main-nav no-space">
+                                        <li class="link-inpage"><a asp-controller="Account" asp-action="Logoff" id="hireme-tab" class="link-inpage"> Выйти</a></li>
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End Main navbar -->
+        </header><!-- End Main Header -->
+        
+        <section class="block-section">
+            <div class="white-space-50"></div>
+            <div class="container-medium">
+                <div class="form-contact-area clearfix">
+                    <div class="inner-contact clearfix ">
+                        <!--TABS CONTACT-->
+                        <ul id="myTab" class="nav nav-tabs flat-nav-tabs" role="tablist">
+                            <li><a href="#tab0" role="tab" data-toggle="tab">Разведданные</a></li>
+                            <li class="active"><a href="#tab1" role="tab" data-toggle="tab">Персонаж</a></li>
+                            <li><a href="#tab2" role="tab" data-toggle="tab">Задачи</a></li>
+                            @if (ViewBag.Character.User == ViewBag.me)
+                            {
+                            <li><a href="#tab3" role="tab" data-toggle="tab">Настройки</a></li>
+                            }
+                        </ul>
+
+                        <div id="myTabContent" class="tab-content flat-tab-content">
+                            <div class="tab-pane fade in active" id="tab1">
+                                @ViewBag.Character.CharacterId
+                                @ViewBag.Player.Id
+                                @ViewBag.Character.Name
+                                @ViewBag.Character.Roles
+                                @ViewBag.Character.identityCode
+                                @ViewBag.Character.signature
+                                @ViewBag.Character.subRoles
+                                @ViewBag.Character.live.ToString()
+                            </div>
+                        </div><!--End Tabs-->
+                    </div>
+                </div>
+            </div>
+            <div class="white-space-50"></div>
+        </section>
+
+            <!--FOOTER-->
+            <footer class="main-footer">
+                <div class="container">
+                    <div class="folow-me">
+                        До новых встреч!
+                    </div>
+                    <p class="text-center no-margin">
+                        Furik, Dippy &COPY; 2017
+                    </p>
+                    <a href="#home" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+                </div>
+            </footer><!--END FOOTER-->
+</div><!--End wrapper page-->
+    <!-- generate captcha -->
+    <div id="mycaptcha-wrap" class="hidden mycaptcha1">
+        <div id="mycaptcha" class="mycaptcha1"></div>
+    </div>
+</body>

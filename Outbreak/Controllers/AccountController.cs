@@ -477,6 +477,24 @@ namespace Outbreak.Controllers
             ViewData["shVK"] = user.ShowVK;
             ViewData["shSteam"] = user.ShowSteam;
             ViewData["Avatar"] = user.Avatar;
+            ViewData["Characters"] = (from a in _context.Characters
+                                      where a.User == user
+                                      select new
+                                 {
+                                     a.CharacterId,
+                                     a.Name,
+                                     a.Roles,
+                                     a.live
+                                 }).AsEnumerable().Select(c => c.ToExpando());
+            ViewData["AnyCharacters"] = (from a in _context.Characters
+                                      where a.User == user
+                                      select new
+                                      {
+                                          a.CharacterId,
+                                          a.Name,
+                                          a.Roles,
+                                          a.live
+                                      }).AsEnumerable().Select(c => c.ToExpando()).Any();
             return View();
         }
 
@@ -484,7 +502,7 @@ namespace Outbreak.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Profile(ProfileViewModel model, string id)
+        public IActionResult Profile(ProfileViewModel model, string id)
         {
             if (ModelState.IsValid)
             {
@@ -519,11 +537,63 @@ namespace Outbreak.Controllers
                 ViewData["shVK"] = user.ShowVK;
                 ViewData["shSteam"] = user.ShowSteam;
                 ViewData["Avatar"] = user.Avatar;
+                ViewData["Characters"] = (from a in _context.Characters
+                                          where a.User == user
+                                          select new
+                                          {
+                                              a.CharacterId,
+                                              a.Name,
+                                              a.Roles
+                                          }).AsEnumerable().Select(c => c.ToExpando());
+                ViewData["AnyCharacters"] = (from a in _context.Characters
+                                             where a.User == user
+                                             select new
+                                             {
+                                                 a.CharacterId,
+                                                 a.Name,
+                                                 a.Roles,
+                                                 a.live
+                                             }).AsEnumerable().Select(c => c.ToExpando()).Any();
                 _context.SaveChanges();
             }
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        // GET: /Account/CreateCharacter
+        [HttpGet]
+        [Authorize]
+        public IActionResult CreateCharacter()
+        {
+            return View();
+        }
+
+        // POST: /Account/CreateCharacter
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateCharacter(CreateCharacterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Character newChar = new Character();
+                //логика
+            }
+            return View(model);
+        }
+
+        // GET: /Account/CharacterInfo/id
+        [HttpGet]
+        [Authorize]
+        public IActionResult CharacterInfo(int id)
+        {
+            ApplicationUser me = _context.Users.SingleOrDefault(m => m.UserName == User.Identity.Name);
+            var character = _context.Characters.SingleOrDefault(m => m.CharacterId == id);
+            ViewData["Character"] = character;
+            ViewData["me"] = me;
+            ViewData["Player"] = _context.Users.SingleOrDefault(m => m == character.User);
+            return View();
         }
 
         #region Helpers

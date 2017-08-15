@@ -1,0 +1,93 @@
+﻿@model CreateCharacterViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body data-spy="scroll" data-target=".menu-area" data-offset="200">
+    <!--wrapper page-->
+    <div class="wrapper">
+
+        <!-- Main Header -->
+        <header class="main-header no-window" id="home">
+            <div class="content-table header-content-fixed ">
+                <div class="whoim">
+                    <div class="box-line text-uppercase text-bold">
+                        OUTBREAK
+                    </div>
+                </div>
+                <div class="v-content">
+                    <div class="container">
+                        <h1 class="text-uppercase color-dark name">Кем будешь ты?</h1>
+                        <h4 class="text-uppercase color-dark font-alt job"><span id="typed" class="typed"></span></h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main navbar -->
+            <div class="menu-area">
+                <div class="toogle-bars">
+                    <a href="#menu-collapse" data-toggle="collapse" class="collapsed"><i class="fa fa-bars ic-open"></i> <i class="fa fa-remove ic-close"></i>Меню</a>
+                </div>
+                <div class="menu-collapse collapse" id="menu-collapse">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6">
+                                <ul class="breadcrumb main-nav nav">
+                                    <li><a href="/home/index" class="link-inpage">Домой</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <ul class="breadcrumb main-nav no-space">
+                                        <li class="link-inpage"><a asp-controller="Account" asp-action="Logoff" id="hireme-tab" class="link-inpage"> Выйти</a></li>
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End Main navbar -->
+        </header><!-- End Main Header -->
+        
+        <section class="block-section">
+            <div class="white-space-50"></div>
+            <div class="container-medium center-block">
+                
+                <form asp-controller="Account" asp-action="CreateCharacter" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <label asp-for="Name" class="col-md-3 control-label"></label>
+                        <div class="col-md-7">
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-4 col-lg-12 center-block">
+                            <button type="submit" class="btn btn-default center-block">Создать</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="white-space-50"></div>
+        </section>
+
+            <!--FOOTER-->
+            <footer class="main-footer">
+                <div class="container">
+                    <div class="folow-me">
+                        До новых встреч!
+                    </div>
+                    <p class="text-center no-margin">
+                        Furik, Dippy &COPY; 2017
+                    </p>
+                    <a href="#home" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+                </div>
+            </footer><!--END FOOTER-->
+</div><!--End wrapper page-->
+    <!-- generate captcha -->
+    <div id="mycaptcha-wrap" class="hidden mycaptcha1">
+        <div id="mycaptcha" class="mycaptcha1"></div>
+    </div>
+</body>
