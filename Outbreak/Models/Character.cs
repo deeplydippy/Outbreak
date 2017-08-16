@@ -8,7 +8,7 @@ namespace Outbreak.Models
     public class Character
     {
         public int CharacterId { get; set; }
-        public virtual ApplicationUser User { get; set; }
+        public ApplicationUser User { get; set; }
         public string Name { get; set; }
         public string Roles { get; set; }
         public string identityCode { get; set; }

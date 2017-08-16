@@ -14,6 +14,7 @@ using Outbreak.Models.AccountViewModels;
 using Outbreak.Services;
 using Outbreak.Data;
 using System.IO;
+using System.Text;
 
 namespace Outbreak.Controllers
 {
@@ -566,6 +567,11 @@ namespace Outbreak.Controllers
         [Authorize]
         public IActionResult CreateCharacter()
         {
+            ApplicationUser me = _context.Users.SingleOrDefault(m => m.UserName == User.Identity.Name);
+            if (_context.Characters.Where(m => m.live && m.User == me).Any())
+            {
+                return RedirectToAction("Profile", new { id = me.Id });
+            }
             return View();
         }
 
@@ -575,12 +581,78 @@ namespace Outbreak.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult CreateCharacter(CreateCharacterViewModel model)
         {
-            if (ModelState.IsValid)
-            {
+                ApplicationUser me = _context.Users.SingleOrDefault(m => m.UserName == User.Identity.Name);
                 Character newChar = new Character();
-                //логика
+                newChar.Name = model.Name;
+                newChar.User = me;
+                newChar.live = true;
+                bool correctCode = false;
+                var code = "";
+                Char[] allChars = new Char[36] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+                while (!correctCode)
+                {
+                    code = RandomString(2) + RandomInt(2).ToString();
+                    if(!(from a in _context.Characters
+                        where a.identityCode == code
+                        select new
+                        {
+                            a.CharacterId
+                        }).AsEnumerable().Select(c => c.ToExpando()).Any())
+                    {
+                        correctCode = true;
+                    }
+                }
+                newChar.identityCode = code;
+                code = "";
+                correctCode = false;
+                while (!correctCode)
+                {
+                code = RandomString(4) + RandomInt(4).ToString();
+                if (!(from a in _context.Characters
+                          where a.signature == code
+                          select new
+                          {
+                              a.CharacterId
+                          }).AsEnumerable().Select(c => c.ToExpando()).Any())
+                    {
+                        correctCode = true;
+                    }
+                }
+                newChar.signature = code;
+                _context.Add(newChar);
+                _context.SaveChanges();
+                return View(model);
+        }
+
+        public static string RandomString(int size)
+        {
+            StringBuilder builder = new StringBuilder();
+            Random random = new Random();
+            char ch;
+            for (int i = 0; i < size; i++)
+            {
+                //Генерируем число являющееся латинским символом в юникоде
+                ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
+                //Конструируем строку со случайно сгенерированными символами
+                builder.Append(ch);
             }
-            return View(model);
+            return builder.ToString();
+        }
+
+        public static int RandomInt(int size)
+        {
+            Random random = new Random();
+            int result = 0;
+            for (int i = 0; i < size; i++)
+            {
+                //Генерируем число от 0 до 9, заполняем им разряд.
+                result = (int)((result * 10) + (random.NextDouble() * 9));
+
+                //Целое число не может начинаться с 0, если его разрядность больше 1
+                if (size > 1 && result == 0)
+                    result++;
+            }
+            return result;
         }
 
         // GET: /Account/CharacterInfo/id
