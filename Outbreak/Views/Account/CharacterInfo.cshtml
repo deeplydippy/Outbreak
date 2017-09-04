@@ -49,22 +49,7 @@
         
         <section class="block-section">
             <div class="white-space-50"></div>
-            <div class="container-medium">
-                <div class="form-contact-area clearfix">
-                    <div class="inner-contact clearfix ">
-                        <!--TABS CONTACT-->
-                        <ul id="myTab" class="nav nav-tabs flat-nav-tabs" role="tablist">
-                            <li><a href="#tab0" role="tab" data-toggle="tab">Разведданные</a></li>
-                            <li class="active"><a href="#tab1" role="tab" data-toggle="tab">Персонаж</a></li>
-                            <li><a href="#tab2" role="tab" data-toggle="tab">Задачи</a></li>
-                            @if (ViewBag.Character.User == ViewBag.me)
-                            {
-                            <li><a href="#tab3" role="tab" data-toggle="tab">Настройки</a></li>
-                            }
-                        </ul>
-
-                        <div id="myTabContent" class="tab-content flat-tab-content">
-                            <div class="tab-pane fade in active" id="tab1">
+                <div class="container-medium">
                                 @ViewBag.Character.CharacterId
                                 @ViewBag.Player.Id
                                 @ViewBag.Character.Name
@@ -73,11 +58,7 @@
                                 @ViewBag.Character.signature
                                 @ViewBag.Character.subRoles
                                 @ViewBag.Character.live.ToString()
-                            </div>
-                        </div><!--End Tabs-->
-                    </div>
-                </div>
-            </div>
+                </div>                   
             <div class="white-space-50"></div>
         </section>
 

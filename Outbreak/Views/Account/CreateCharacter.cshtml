@@ -51,9 +51,20 @@
         </header><!-- End Main Header -->
         
         <section class="block-section">
-            <div class="white-space-50"></div>
             <div class="container-medium center-block">
                 
+                @if (ViewBag.haveLiveChar)
+                {
+                    <h3 class="text-danger text-center"><p>Ошибка!</p><p>У Вас уже есть живой персонаж!</p></h3>
+                    <br>
+                    <form action="/Account/Profile/@ViewBag.myid">
+                        <div class="col-md-offset-4 col-lg-12 center-block">
+                            <button type="submit" class="btn btn-danger  btn-flat-solid btn-pill center-block">В профиль</button>
+                        </div>
+                    </form>
+                }
+                else
+                {
                 <form asp-controller="Account" asp-action="CreateCharacter" method="post" class="form-horizontal">
                     <div class="form-group">
                         <label asp-for="Name" class="col-md-3 control-label"></label>
@@ -68,9 +79,9 @@
                         </div>
                     </div>
                 </form>
-
+                }
             </div>
-            <div class="white-space-50"></div>
+            <div class="white-space-60"></div>
         </section>
 
             <!--FOOTER-->

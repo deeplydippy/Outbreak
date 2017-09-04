@@ -568,9 +568,14 @@ namespace Outbreak.Controllers
         public IActionResult CreateCharacter()
         {
             ApplicationUser me = _context.Users.SingleOrDefault(m => m.UserName == User.Identity.Name);
-            if (_context.Characters.Where(m => m.live && m.User == me).Any())
+            ViewData["myid"] = me.Id;
+            if (_context.Characters.Where(m => m.live == true && m.User == me).Any())
             {
-                return RedirectToAction("Profile", new { id = me.Id });
+                ViewData["haveLiveChar"] = true;
+            }
+            else
+            {
+                ViewData["haveLiveChar"] = false;
             }
             return View();
         }
@@ -664,7 +669,7 @@ namespace Outbreak.Controllers
             var character = _context.Characters.SingleOrDefault(m => m.CharacterId == id);
             ViewData["Character"] = character;
             ViewData["me"] = me;
-            ViewData["Player"] = _context.Users.SingleOrDefault(m => m == character.User);
+            ViewData["Player"] = _context.Users.SingleOrDefault(m => m.Id == character.User.Id);
             return View();
         }
 
