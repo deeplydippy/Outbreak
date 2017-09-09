@@ -49,12 +49,13 @@
         
         <section class="block-section">
             <div class="white-space-50"></div>
-                <div class="container-medium">
-                        <h4> Персонаж #<text class="color-dark">@ViewBag.Character.CharacterId</text></h4>
+                <div class="container">
+                    <div class="col-md-4">
+                        <p><h4> Персонаж #<text class="color-dark">@ViewBag.Character.CharacterId</text></h4>
                         <h4> Полное имя: <text class="color-dark"> @ViewBag.Character.Name </text></h4>
-                        @if(ViewBag.Character.Roles != null)
-                        { 
-                        <h4> Роли: <text class="color-dark"> @ViewBag.Character.Roles </text></h4>
+                        @if (ViewBag.Character.Roles != null)
+                        {
+                            <h4> Роли: <text class="color-dark"> @ViewBag.Character.Roles </text></h4>
                         }
                         @if (ViewBag.Character.subRoles != null)
                         {
@@ -62,7 +63,7 @@
                         }
                         <h4> Идентификационный код: <text class="color-dark"> @ViewBag.Character.identityCode </text></h4>
                         <h4> Печать: <text class="color-dark"> @ViewBag.Character.signature </text></h4>
-                        
+
                         @if (ViewBag.Character.live)
                         {
                             <h4>
@@ -75,7 +76,7 @@
                             <h4>
                                 Статус: <text class="color-dark"> Мертв </text>
                             </h4>
-                        }   
+                        }
                         @if (ViewBag.Character.approved)
                         {
                             <h4>
@@ -88,8 +89,30 @@
                             <h4>
                                 Вердикт: <text class="color-dark"> Не утвержден </text>
                             </h4>
-                        }   
-                </div>                   
+                        }</p>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>
+                            <text class="color-dark"> Личный дневник: </text>
+                        </h4>
+                        @if (ViewBag.hasDiary)
+                        {
+                            @foreach (var item in ViewBag.Diary)
+                            {
+                                <p class="color-dark"> Запись от @item.Date : </p>
+                                
+                                <blockquote>
+                                    <p>@item.Text</p>
+                                </blockquote>
+                                <hr>
+                            }
+                        }
+                        else
+                        {
+                            <p class="color-dark"> Дневник пуст </p>
+                        }
+                    </div>
+                 </div>
             <div class="white-space-50"></div>
         </section>
 

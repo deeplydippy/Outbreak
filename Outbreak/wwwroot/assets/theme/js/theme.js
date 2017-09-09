@@ -12,9 +12,7 @@
     initLightBox();
     initTyped();
     initBtnFile();
-    initMap();
     initHold();
-    initCaptcha();
     initAjaxContactForm();
     initAjaxUploader();
   });
@@ -144,23 +142,6 @@
       }
     });
     }
-  }
-
-  //captcha configuration
-  function initCaptcha() {
-    $('#mycaptcha').simpleCaptcha({
-      allowRefresh: false,
-      scriptPath: "assets/plugins/simpleCaptcha/simpleCaptcha.php"
-    });
-
-    $('#mycaptcha').bind('ready.simpleCaptcha', function(hashSelected) {
-      $('#captcha1,#captcha2').html($('#mycaptcha-wrap').html()).find('.mycaptcha1').removeAttr('id');
-      $('#captcha1,#captcha2').find('.captchaImages img.captchaImage').click(function() {
-        $('#captcha1,#captcha2').find('.captchaImages img.captchaImage').removeClass('simpleCaptchaSelected');
-        $(this).addClass('simpleCaptchaSelected');
-        $('.simpleCaptchaInput').val($(this).data('hash'));
-      });
-    });
   }
 
   //Typed Animation
@@ -325,26 +306,6 @@
     }
   }
 
-  //Map
-  function initMap() {
-    $('#map-contact').gmap({
-      'center': '-6.600000, 106.800000',
-      'zoom': 15,
-      scrollwheel: false,
-      'disableDefaultUI': false,
-      'callback': function() {
-        var self = this;
-        self.addMarker({
-          'position': this.get('map').getCenter(),
-          icon: 'assets/theme/images/marker.png'
-        }).click(function() {
-          self.openInfoWindow({
-            'content': $('.map-contact-body').html()
-          }, this);
-        });
-      }
-    });
-  }
 
   function initHold() {
     $('[data-holdwidth]').each(function(index, el) {

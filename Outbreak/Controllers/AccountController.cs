@@ -583,7 +583,8 @@ namespace Outbreak.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult CreateCharacter(CreateCharacterViewModel model)
         {
-                ApplicationUser me = _context.Users.SingleOrDefault(m => m.UserName == User.Identity.Name);
+            ApplicationUser me = _context.Users.SingleOrDefault(m => m.UserName == User.Identity.Name);
+            try {
                 Character newChar = new Character();
                 newChar.Name = model.Name;
                 newChar.User = me;
@@ -595,12 +596,12 @@ namespace Outbreak.Controllers
                 while (!correctCode)
                 {
                     code = RandomString(2) + RandomInt(2).ToString();
-                    if(!(from a in _context.Characters
-                        where a.identityCode == code
-                        select new
-                        {
-                            a.CharacterId
-                        }).AsEnumerable().Select(c => c.ToExpando()).Any())
+                    if (!(from a in _context.Characters
+                          where a.identityCode == code
+                          select new
+                          {
+                              a.CharacterId
+                          }).AsEnumerable().Select(c => c.ToExpando()).Any())
                     {
                         correctCode = true;
                     }
@@ -610,8 +611,8 @@ namespace Outbreak.Controllers
                 correctCode = false;
                 while (!correctCode)
                 {
-                code = RandomString(4) + RandomInt(4).ToString();
-                if (!(from a in _context.Characters
+                    code = RandomString(4) + RandomInt(4).ToString();
+                    if (!(from a in _context.Characters
                           where a.signature == code
                           select new
                           {
@@ -622,16 +623,19 @@ namespace Outbreak.Controllers
                     }
                 }
                 newChar.signature = code;
-                _context.Add(newChar);
-                _context.SaveChanges();
                 Diary newDiary = new Diary();
                 newDiary.Char = newChar;
                 newDiary.Date = DateTime.Now;
                 newDiary.Text = model.Biography;
                 newDiary.User = me;
+                _context.Add(newChar);
                 _context.Add(newDiary);
                 _context.SaveChanges();
+            }
+            catch {
                 return View(model);
+            }
+            return RedirectToAction("Profile", new { id = me.Id });
         }
 
         public static string RandomString(int size)
@@ -675,6 +679,14 @@ namespace Outbreak.Controllers
             ViewData["Character"] = character;
             ViewData["me"] = me;
             ViewData["Player"] = _context.Users.SingleOrDefault(m => m.Id == character.User.Id);
+            ViewData["hasDiary"] = _context.Diaries.Where(m => m.Char.CharacterId == id).Any();
+            ViewData["Diary"] = (from a in _context.Diaries
+                                 where a.Char == character
+                                 select new
+                                 {
+                                     a.Date,
+                                     a.Text
+                                 }).AsEnumerable().Select(c => c.ToExpando());
             return View();
         }
 

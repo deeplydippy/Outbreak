@@ -62,6 +62,7 @@
                             <button type="submit" class="btn btn-danger  btn-flat-solid btn-pill center-block">В профиль</button>
                         </div>
                     </form>
+                    <div class="white-space-50"></div>
                 }
                 else
                 {
@@ -72,9 +73,12 @@
                             <input asp-for="Name" class="form-control" />
                             <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
+                    </div>
+                    <div class="form-group">
                         <label asp-for="Biography" class="col-md-3 control-label"></label>
                         <div class="col-md-7">
-                            <input asp-for="Biography" class="form-control" />
+                            @*<input asp-for="Biography" class="form-control"/>*@
+                            <textarea asp-for="Biography" class="form-control" cols="10" rows="10"></textarea>
                             <span asp-validation-for="Biography" class="text-danger"></span>
                         </div>
                     </div>
