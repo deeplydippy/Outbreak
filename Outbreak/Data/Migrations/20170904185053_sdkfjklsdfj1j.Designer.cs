@@ -8,9 +8,10 @@ using Outbreak.Data;
 namespace Outbreak.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170904185053_sdkfjklsdfj1j")]
+    partial class sdkfjklsdfj1j
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -223,8 +224,6 @@ namespace Outbreak.Data.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int?>("CharacterId");
-
-                    b.Property<DateTime>("Date");
 
                     b.Property<string>("Text");
 

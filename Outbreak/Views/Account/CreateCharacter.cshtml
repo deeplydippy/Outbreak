@@ -51,8 +51,8 @@
         </header><!-- End Main Header -->
         
         <section class="block-section">
-            <div class="container-medium center-block">
-                
+            <div class="white-space-20"></div>
+            <div class="container-medium center-block">                
                 @if (ViewBag.haveLiveChar)
                 {
                     <h3 class="text-danger text-center"><p>Ошибка!</p><p>У Вас уже есть живой персонаж!</p></h3>
@@ -72,6 +72,11 @@
                             <input asp-for="Name" class="form-control" />
                             <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
+                        <label asp-for="Biography" class="col-md-3 control-label"></label>
+                        <div class="col-md-7">
+                            <input asp-for="Biography" class="form-control" />
+                            <span asp-validation-for="Biography" class="text-danger"></span>
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-4 col-lg-12 center-block">
@@ -81,7 +86,7 @@
                 </form>
                 }
             </div>
-            <div class="white-space-60"></div>
+            <div class="white-space-20"></div>
         </section>
 
             <!--FOOTER-->

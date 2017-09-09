@@ -8,9 +8,10 @@ using Outbreak.Data;
 namespace Outbreak.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170904133904_GJKfjdkgj")]
+    partial class GJKfjdkgj
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -217,28 +218,6 @@ namespace Outbreak.Data.Migrations
                     b.ToTable("Characters");
                 });
 
-            modelBuilder.Entity("Outbreak.Models.Diary", b =>
-                {
-                    b.Property<int>("DiaryId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("CharacterId");
-
-                    b.Property<DateTime>("Date");
-
-                    b.Property<string>("Text");
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("DiaryId");
-
-                    b.HasIndex("CharacterId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Diaries");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")
@@ -278,17 +257,6 @@ namespace Outbreak.Data.Migrations
 
             modelBuilder.Entity("Outbreak.Models.Character", b =>
                 {
-                    b.HasOne("Outbreak.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("Outbreak.Models.Diary", b =>
-                {
-                    b.HasOne("Outbreak.Models.Character", "Char")
-                        .WithMany()
-                        .HasForeignKey("CharacterId");
-
                     b.HasOne("Outbreak.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");

@@ -114,6 +114,7 @@
                                                 <th>ФИО</th>
                                                 <th>Роли</th>
                                                 <th>Статус</th>
+                                                <th>Вердикт</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -131,6 +132,14 @@
                                                     else
                                                     {
                                                         <td>Мертв</td>
+                                                    }
+                                                    @if (item.approved)
+                                                    {
+                                                        <td>Утвержден</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td>Не утвержден</td>
                                                     }
                                                 </tr>
                                             }

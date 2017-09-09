@@ -50,14 +50,45 @@
         <section class="block-section">
             <div class="white-space-50"></div>
                 <div class="container-medium">
-                                @ViewBag.Character.CharacterId
-                                @ViewBag.Player.Id
-                                @ViewBag.Character.Name
-                                @ViewBag.Character.Roles
-                                @ViewBag.Character.identityCode
-                                @ViewBag.Character.signature
-                                @ViewBag.Character.subRoles
-                                @ViewBag.Character.live.ToString()
+                        <h4> Персонаж #<text class="color-dark">@ViewBag.Character.CharacterId</text></h4>
+                        <h4> Полное имя: <text class="color-dark"> @ViewBag.Character.Name </text></h4>
+                        @if(ViewBag.Character.Roles != null)
+                        { 
+                        <h4> Роли: <text class="color-dark"> @ViewBag.Character.Roles </text></h4>
+                        }
+                        @if (ViewBag.Character.subRoles != null)
+                        {
+                            <h4> Суброли: <text class="color-dark"> @ViewBag.Character.subRoles </text></h4>
+                        }
+                        <h4> Идентификационный код: <text class="color-dark"> @ViewBag.Character.identityCode </text></h4>
+                        <h4> Печать: <text class="color-dark"> @ViewBag.Character.signature </text></h4>
+                        
+                        @if (ViewBag.Character.live)
+                        {
+                            <h4>
+                                Статус: <text class="color-dark"> Жив </text>
+                            </h4>
+
+                        }
+                        else
+                        {
+                            <h4>
+                                Статус: <text class="color-dark"> Мертв </text>
+                            </h4>
+                        }   
+                        @if (ViewBag.Character.approved)
+                        {
+                            <h4>
+                                Вердикт: <text class="color-dark"> Утвержден </text>
+                            </h4>
+
+                        }
+                        else
+                        {
+                            <h4>
+                                Вердикт: <text class="color-dark"> Не утвержден </text>
+                            </h4>
+                        }   
                 </div>                   
             <div class="white-space-50"></div>
         </section>

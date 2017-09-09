@@ -25,5 +25,6 @@ namespace Outbreak.Data
         }
 
         public DbSet<Character> Characters { get; set; }
+        public DbSet<Diary> Diaries { get; set; }
     }
 }

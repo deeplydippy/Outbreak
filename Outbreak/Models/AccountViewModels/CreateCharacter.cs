@@ -12,5 +12,9 @@ namespace Outbreak.Models.AccountViewModels
         [Display(Name = "ФИО")]
         [Required(ErrorMessage = "ФИО обязательно!")]
         public string Name { get; set; }
+
+        [Display(Name = "Предыстория")]
+        [Required(ErrorMessage = "Предыстория обязательна!")]
+        public string Biography { get; set; }
     }
 }

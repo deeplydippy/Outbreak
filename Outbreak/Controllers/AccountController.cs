@@ -481,21 +481,19 @@ namespace Outbreak.Controllers
             ViewData["Characters"] = (from a in _context.Characters
                                       where a.User == user
                                       select new
-                                 {
-                                     a.CharacterId,
-                                     a.Name,
-                                     a.Roles,
-                                     a.live
-                                 }).AsEnumerable().Select(c => c.ToExpando());
-            ViewData["AnyCharacters"] = (from a in _context.Characters
-                                      where a.User == user
-                                      select new
                                       {
                                           a.CharacterId,
                                           a.Name,
                                           a.Roles,
+                                          a.approved,
                                           a.live
-                                      }).AsEnumerable().Select(c => c.ToExpando()).Any();
+                                      }).AsEnumerable().Select(c => c.ToExpando());
+            ViewData["AnyCharacters"] = (from a in _context.Characters
+                                         where a.User == user
+                                         select new
+                                         {
+                                             a.CharacterId
+                                         }).AsEnumerable().Select(c => c.ToExpando()).Any();
             return View();
         }
 
@@ -544,16 +542,15 @@ namespace Outbreak.Controllers
                                           {
                                               a.CharacterId,
                                               a.Name,
-                                              a.Roles
+                                              a.Roles,
+                                              a.live,
+                                              a.approved
                                           }).AsEnumerable().Select(c => c.ToExpando());
                 ViewData["AnyCharacters"] = (from a in _context.Characters
                                              where a.User == user
                                              select new
                                              {
-                                                 a.CharacterId,
-                                                 a.Name,
-                                                 a.Roles,
-                                                 a.live
+                                                 a.CharacterId
                                              }).AsEnumerable().Select(c => c.ToExpando()).Any();
                 _context.SaveChanges();
             }
@@ -591,6 +588,7 @@ namespace Outbreak.Controllers
                 newChar.Name = model.Name;
                 newChar.User = me;
                 newChar.live = true;
+                newChar.Roles = "[S]";
                 bool correctCode = false;
                 var code = "";
                 Char[] allChars = new Char[36] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
@@ -625,6 +623,13 @@ namespace Outbreak.Controllers
                 }
                 newChar.signature = code;
                 _context.Add(newChar);
+                _context.SaveChanges();
+                Diary newDiary = new Diary();
+                newDiary.Char = newChar;
+                newDiary.Date = DateTime.Now;
+                newDiary.Text = model.Biography;
+                newDiary.User = me;
+                _context.Add(newDiary);
                 _context.SaveChanges();
                 return View(model);
         }

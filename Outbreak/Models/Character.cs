@@ -15,5 +15,6 @@ namespace Outbreak.Models
         public string signature { get; set; }
         public string subRoles { get; set; }
         public bool live { get; set; }
+        public bool approved { get; set; }
     }
 }
