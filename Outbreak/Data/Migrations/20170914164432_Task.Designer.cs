@@ -8,9 +8,10 @@ using Outbreak.Data;
 namespace Outbreak.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170914164432_Task")]
+    partial class Task
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -246,19 +247,13 @@ namespace Outbreak.Data.Migrations
 
                     b.Property<bool>("Actual");
 
-                    b.Property<string>("CreatorId");
-
                     b.Property<string>("Executor");
 
                     b.Property<string>("Text");
 
-                    b.Property<string>("Title");
-
                     b.Property<int>("TypeId");
 
                     b.HasKey("TaskId");
-
-                    b.HasIndex("CreatorId");
 
                     b.ToTable("Tasks");
                 });
@@ -316,13 +311,6 @@ namespace Outbreak.Data.Migrations
                     b.HasOne("Outbreak.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("Outbreak.Models.Task", b =>
-                {
-                    b.HasOne("Outbreak.Models.ApplicationUser", "Creator")
-                        .WithMany()
-                        .HasForeignKey("CreatorId");
                 });
         }
     }

@@ -8,9 +8,10 @@ using Outbreak.Data;
 namespace Outbreak.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170914174016_Task1")]
+    partial class Task1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -251,8 +252,6 @@ namespace Outbreak.Data.Migrations
                     b.Property<string>("Executor");
 
                     b.Property<string>("Text");
-
-                    b.Property<string>("Title");
 
                     b.Property<int>("TypeId");
 

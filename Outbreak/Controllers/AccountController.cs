@@ -689,6 +689,7 @@ namespace Outbreak.Controllers
                                  }).AsEnumerable().Select(c => c.ToExpando());
             return View();
         }
+        
 
         #region Helpers
 
